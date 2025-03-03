@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_15sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragment.HomeFragment">
+
+    <TextView
+        android:id="@+id/tv_model_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BoldText"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="?txtPrimary"/>
+
+    <LinearLayout
+        android:id="@+id/llt_bat_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_battery"
+                android:layout_gravity="center_horizontal"
+                android:rotation="90"/>
+            <TextView
+                android:id="@+id/tv_battery_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/RegularText"
+                android:textAlignment="center"
+                android:minWidth="@dimen/_50sdp"
+                android:textColor="?txtPrimary"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_sd_card"
+                android:textAlignment="center"
+                android:minWidth="@dimen/_50sdp"
+                android:rotation="90"
+                android:layout_gravity="center_horizontal" />
+            <TextView
+                android:id="@+id/tv_memory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/RegularText"
+                android:text="70%"
+                android:layout_gravity="center"
+                android:textColor="?txtPrimary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:gravity="center"
+        >
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="gone"
+            android:verticalScrollbarPosition="left" />
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dotIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewPager"
+            android:layout_marginTop="-25dp"
+            android:layout_centerHorizontal="true"
+            app:dotsColor="?txtFourth"
+            android:visibility="gone"
+            app:dotsSize="@dimen/_5sdp"
+            app:dotsSpacing="@dimen/_5sdp"
+            app:selectedDotColor="?bgThird" />
+        <LinearLayout
+            android:id="@+id/llt_cam_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/viewPager"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:weightSum="2">
+            <RelativeLayout
+                android:id="@+id/rlt_capture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_curved_border_light_transparent"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_75sdp"
+                    android:src="@drawable/ic_camera"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/_20sdp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlt_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_curved_border_light_transparent"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_75sdp"
+                    android:src="@drawable/ic_recording"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_preview"
+            android:layout_below="@+id/llt_cam_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_125sdp"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_stock"/>
+                <View
+                    android:id="@+id/top_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:rotation="180"
+                    android:background="@drawable/bg_shadow"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BoldText"
+                    android:text="@string/preview"
+                    android:layout_centerInParent="true"
+                    android:textColor="?txtPrimary"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

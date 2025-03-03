@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.aegentcam.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/filesFragment"
+        android:name="com.android.aegentcam.view.fragment.FilesFragment"
+        android:label="fragment_files"
+        tools:layout="@layout/fragment_files" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.android.aegentcam.view.fragment.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_deviceInfoFragment"
+            app:destination="@id/deviceInfoFragment"
+            app:enterAnim="@anim/ub__slide_in_right"
+            app:exitAnim="@anim/ub__slide_out_left"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_recordSettingFragment"
+            app:destination="@id/recordSettingFragment"
+            app:enterAnim="@anim/ub__slide_in_right"
+            app:exitAnim="@anim/ub__slide_out_left"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_appVersionFragment"
+            app:destination="@id/appVersionFragment"
+            app:enterAnim="@anim/ub__slide_in_right"
+            app:exitAnim="@anim/ub__slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/deviceInfoFragment"
+        android:name="com.android.aegentcam.view.fragment.DeviceInfoFragment"
+        android:label="fragment_device_info"
+        tools:layout="@layout/fragment_device_info" />
+
+    <fragment
+        android:id="@+id/recordSettingFragment"
+        android:name="com.android.aegentcam.view.fragment.RecordSettingFragment"
+        android:label="fragment_record_setting"
+        tools:layout="@layout/fragment_record_setting" />
+
+    <fragment
+        android:id="@+id/appVersionFragment"
+        android:name="com.android.aegentcam.view.fragment.AppVersionFragment"
+        android:label="fragment_app_version"
+        tools:layout="@layout/fragment_app_version" />
+
+
+
+</navigation>

@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="ThemeAegentCam" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/window_background</item>
+        <item name="android:windowBackground">@color/bg_window</item>
+        <item name="bgSecondary">@color/bg_secondary</item>
+        <item name="bgNavigationItemSelected">@color/bg_tab_select</item>
+        <item name="bgBorderPrimary">@color/curved_border</item>
+        <item name="bgPrimary">@color/colorPrimary</item>     //red
+        <item name="bgThird">@color/bg_third</item>
+        <item name="bgFifth">@color/bg_fifth</item>
+        <item name="bgGold">@color/bg_gold</item>
+        <item name="bgSixth">@color/bg_sixth</item>
+        <item name="txtSixth">@color/txt_sixth</item>
+        <item name="bglightash">@color/bg_light_ash</item>
+        <item name="bgblue">@color/link_color</item>
+        <item name="topCurvedBorderShadow">@color/top_curved_border</item>
+        <item name="bgFour">@color/bg_four</item>
+        <item name="bgWindow">@color/bg_window</item>
+        <item name="bgUnselect">@color/bg_unselect</item>
+        <item name="bgShadow">@color/bg_shadow</item>
+        <item name="bgGreyShadow">@color/bg_grey_shadow</item>
+        <item name="bgGreyLight">@color/bg_grey_light</item>
+        <item name="bgGrey">@color/bg_grey</item>
+        <item name="bgThumb">@color/bg_thumps</item>
+        <item name="txtPrimary">@color/txt_primary</item>   //black
+        <item name="txtSecondary">@color/txt_secondary</item>  //white
+        <item name="txtThird">@color/txt_third</item>  //red
+        <item name="txtFourth">@color/txt_four</item>  //hint grey
+        <item name="txtInactive">@color/txt_inactive</item>  //hint grey
+        <item name="txtActive">@color/txt_active</item>  //hint grey
+        <item name="txtHint">@color/txt_hint</item>  //hint grey
+        <item name="rating_yellow">@color/rating_yellow</item>
+        <item name="txtFifth">@color/txt_fifth</item>  //txt_primary inversion
+        <item name="black">@color/black</item>
+        <item name="errorRed">@color/error_red</item>
+        <item name="bg_curved_four">@color/bg_curved_four</item>
+        <item name="bg_header">@color/bg_header</item>
+        <item name="gray">@color/gray</item>
+    </style>
+
+
+</resources>

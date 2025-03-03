@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.PreviewActivity">
+    <SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:src="@drawable/ic_back"
+        android:padding="@dimen/_5sdp"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        />
+
+    <LinearLayout
+        android:id="@+id/llt_right_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:weightSum="5"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:background="@drawable/bg_unselected_tab">
+        <ImageView
+            android:id="@+id/btn_mic_on"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/ic_mic_on"
+            />
+
+        <ImageView
+            android:id="@+id/btn_setting"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_setting"
+            app:tint="?bgFour"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

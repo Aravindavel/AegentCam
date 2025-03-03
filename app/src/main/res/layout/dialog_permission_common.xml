@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_15sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?android:windowBackground"
+    app:cardCornerRadius="@dimen/_15sdp"
+    android:elevation="@dimen/_15sdp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            style="@style/BoldText"
+            android:id="@+id/tv_custom__title"
+            android:textColor="?txtSecondary"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_custom_message"
+            android:layout_margin="10dp"
+            android:text=""
+            style="@style/MediumText"
+            android:textColor="?txtSecondary"
+            android:textAlignment="center"
+            />
+
+        <LinearLayout
+            android:id="@+id/common_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:visibility="visible">
+
+
+            <Button
+                android:id="@+id/button_cancel"
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_curved_window_stoke"
+                android:padding="10dp"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
+                android:textColor="?txtPrimary" />
+
+            <Button
+                android:id="@+id/button_ok"
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/bg_curved_primary"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:text="@string/ok"
+                android:textAllCaps="false"
+                android:textColor="?txtPrimary" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"
+        app:cnb_iconColor="@color/window_background"/>
+    <item
+        android:id="@+id/filesFragment"
+        android:icon="@drawable/ic_gallery"
+        android:title="@string/recorded_files"
+        app:cnb_iconColor="@color/window_background"/>
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/setting"
+        app:cnb_iconColor="@color/window_background" />
+</menu>

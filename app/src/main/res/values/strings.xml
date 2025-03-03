@@ -1,0 +1,80 @@
+<!DOCTYPE resources [<!ENTITY appname "AegentCam"><!ENTITY baseUrl "https://api.jikan.moe/v4/"><!ENTITY apiKey "ENTER YOUR API KEY"><!ENTITY domain "api.jikan.moe">]>
+<resources>
+    <string name="app_name" translatable="false">&appname;</string>
+    <string name="baseUrl" translatable="false">&baseUrl;</string>
+    <string name="domain" translatable="false">&domain;</string>
+    <string name="apiBaseUrl" translatable="false">&baseUrl;</string>
+    <string name="internal_server_error">Please try again after sometimes.</string>
+    <string name="please_try_again">Please try again after some times</string>
+    <string name="please_check_internet_connection">Please check your internet connection</string>
+    <string name="no_data_found">No data found</string>
+    <string name="get_started">Get Started</string>
+    <string name="channel_wearable_dash_cam">3-Channel Wearable Dash Cam</string>
+    <string name="fitt360">fitt360</string>
+    <string name="home">Home</string>
+    <string name="recorded_files">Recorded Files</string>
+    <string name="setting">Setting</string>
+    <string name="application_setting">Application Setting</string>
+    <string name="preview">Preview</string>
+    <string name="press_back_again">Press back again to exit</string>
+    <string name="device_info">Device Info</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connected">Connected</string>
+    <string name="record_setting">Record Setting</string>
+    <string name="camera_setting">Camera Setting</string>
+    <string name="app_version">App Version</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="device_name">Device Name</string>
+    <string name="battery_status">Battery Status</string>
+    <string name="internal_storage">Internal Storage</string>
+    <string name="firmware_version">Firmware Version</string>
+    <string name="release_date">Release Date</string>
+    <string name="device_information">Device Information</string>
+    <string name="this_is_latest_version">This is the latest version.</string>
+    <string name="current_version">Current Version - </string>
+    <string name="check">Check</string>
+    <string name="terminate">Terminate</string>
+    <string name="connect_device">Connect Device</string>
+    <string name="discovered_device">Discovered Devices</string>
+    <string name="bt_pairing_request_cancel">Pairing failed. Please try again after setting the device in pairing mode</string>
+    <string name="failed_connect_as_remote">Now trying to connect to the device.\nPlease wait for a while.</string>
+    <string name="bt_not_found">Please check the device is on sleep mode</string>
+    <string name="failed_find_so_stop_discovery">Could not found the available device.</string>
+    <string name="lets_start">Let\'s Start</string>
+    <string name="connecting_2">Connecting</string>
+    <string name="connected_1">Connected</string>
+    <string name="bt_pairing_request">Start Bluetooth paring.. \nPlease make sure your device is on pairing mode</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="continue_alert">Continue</string>
+    <string name="not_now">Not Now</string>
+    <string name="camera_permission_description">To capture photos and videos, allow </string>
+    <string name="to_access_camera_and_storage"> to access your camera and storage</string>
+    <string name="storage_permission_description">To upload profile image</string>
+    <string name="to_access_storage">to access your storage</string>
+    <string name="location_permission_description">To request your job, allow </string>
+    <string name="to_access_location">to access your device  location</string>
+    <string name="audio_permission_description">To Connect phone call, allow </string>
+    <string name="to_access_your_audio">  to access your audio settings</string>
+    <string name="contact_permission_description">To Allow </string>
+    <string name="to_access_contacts">To Access Your Contacts For Emergency Purpose</string>
+    <string name="settings">Settings</string>
+    <string name="enable_permissions_to_proceed_further">Enable permission to proceed further</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="photo_captured">Photo Captured!!</string>
+    <string name="photo_capture_failed">Photo Capture Failed</string>
+    <string name="video_recording_start">Video Recording Started</string>
+    <string name="video_recording_failed">Video Recording Failed</string>
+    <string name="video_recording_stop">Video Recording Stopped</string>
+    <string name="applied_need_restart">Applied. Restart recording to finish setting up the device.</string>
+    <string name="not_applied">failed to apply</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="processing">Processing...</string>
+    <string name="wifi_connecting_1">Connecting WiFi Direct</string>
+    <string name="wifi_state_enable_alert">Need WIFI Connection.\nWill you turn on WIFI?</string>
+    <string name="wifi_disconnected_time_out">Wifi p2p disconnected by long time does not use it.</string>
+    <string name="wifi_disconnected">Wifi p2p disconnected.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="window_color_bg" format="color" />
+    <attr name="curve_bg" format="color" />
+    <attr name="window_color_txt" format="color" />
+
+    <attr name="primary_color_bg" format="color" />
+    <attr name="primary_color_txt" format="color" />
+    <attr name="primary_color_btn" format="color" />
+    <attr name="primary_color_btn_disable" format="color" />
+
+    <attr name="tint_color_accent" format="color" />
+
+    <attr name="bg_fifth_color" format="color" />
+    <attr name="bg_fourth_color" format="color" />
+
+    <attr name="second_color_txt" format="color" />
+    <attr name="secondary_color_bg" format="color" />
+    <attr name="third_color_txt" format="color" />
+    <attr name="four_color_txt" format="color" />
+
+    <attr name="progress_color_primary" format="color" />
+    <attr name="progress_color_secondary" format="color" />
+    <attr name="rating_yellow" format="color" />
+    <attr name="infoRed" format="color" />
+
+    <attr name="bgBorderPrimary" format="color" />
+    <attr name="bgPrimary" format="color" />
+    <attr name="colorPrimary" format="color" />
+    <attr name="bgSecondary" format="color" />
+    <attr name="topCurvedBorderShadow" format="color" />
+    <attr name="bgThird" format="color" />
+    <attr name="bgSeventh" format="color" />
+    <attr name="bgFour" format="color" />
+    <attr name="bgFifth" format="color" />
+    <attr name="bgSixth" format="color" />
+    <attr name="bgUnselect" format="color" />
+    <attr name="bgWindow" format="color"/>
+    <attr name="black" format="color"/>
+    <attr name="bg_curved_secondary" format="color"/>
+    <attr name="bg_header" format="color"/>
+    <attr name="bg_blue" format="color"/>
+    <attr name="bg_red" format="color"/>
+
+    <attr name="txtPrimary" format="color" />
+    <attr name="txtSecondary" format="color" />
+    <attr name="txtThird" format="color" />
+    <attr name="txtFourth" format="color" />
+    <attr name="txtFifth" format="color" />
+    <attr name="txtSixth" format="color" />
+    <attr name="txtInactive" format="color" />
+    <attr name="txtActive" format="color" />
+    <attr name="txtHint" format="color" />
+    <attr name="bgNavigationItemSelected" format="color"/>
+    <attr name="progressBarUnselectedColor" format="color"/>
+    <attr name="bgShadow" format="color"/>
+    <attr name="bgGold" format="color"/>
+    <attr name="errorRed" format="color"/>
+    <attr name="bgThumb" format="color"/>
+    <attr name="bgGreyShadow" format="color"/>
+    <attr name="bgGreyLight" format="color"/>
+    <attr name="bgGrey" format="color"/>
+    <attr name="purchase_txt_color" format="color"/>
+    <attr name="category_bg_color" format="color"/>
+    <attr name="bg_curved_four" format="color"/>
+    <attr name="gray" format="color"/>
+    <attr name="startGradient" format="color"/>
+    <attr name="centerGradient" format="color"/>
+    <attr name="endGradient" format="color"/>
+    <attr name="bglightash" format="color"/>
+    <attr name="bgblue" format="color"/>
+
+
+
+
+    <attr name="font_regular" format="reference" />
+    <attr name="font_regular_size" format="dimension" />
+    <attr name="font_medium" format="reference" />
+    <attr name="font_medium_size" format="dimension" />
+    <attr name="font_title" format="reference" />
+    <attr name="font_title_size" format="dimension" />
+
+</resources>

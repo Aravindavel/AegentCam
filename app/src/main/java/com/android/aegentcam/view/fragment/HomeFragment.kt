@@ -80,6 +80,24 @@ class HomeFragment : BaseFragment() {
             ).toBundle()
             startActivity(intent, animation)
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.tvBatteryPercentage.text = "${(context as MainActivity).mBTCommandManager!!.statusItem.mBatteryLevel.toString()}%"
+        val usedStorageMB = (context as MainActivity).mBTCommandManager!!.statusItem.mInternalStorage[0].toLong()
+        val totalStorageMB = (context as MainActivity).mBTCommandManager!!.statusItem.mInternalStorage[1].toLong()
+
+        val storageUsagePercentage = calculateStorageUsagePercentage(usedStorageMB, totalStorageMB)
+
+        binding.tvMemory.text = storageUsagePercentage
+    }
+
+    fun calculateStorageUsagePercentage(usedMB: Long, totalMB: Long): String {
+        if (totalMB == 0L) return "N/A" // Avoid division by zero
+        val usagePercentage = (usedMB.toDouble() / totalMB.toDouble()) * 100
+        return String.format("%.1f%%", usagePercentage)
     }
 
     private val mMainHandler: Handler = object : Handler(Looper.getMainLooper()) {
@@ -104,7 +122,7 @@ class HomeFragment : BaseFragment() {
                                 requireContext(),
                                 if (success) {
                                     if (mIsRecording)
-                                        R.string.video_recording_stop
+                                        R.string.video_recording_start
                                     else
                                         R.string.video_recording_stop
                                 }else
@@ -126,15 +144,15 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun onSuccess(networkResult: NetworkResult<Any>) {
-        
+
     }
 
     override fun onFailure(networkResult: NetworkResult<Any>) {
-        
+
     }
 
     override fun onLoading(networkResult: NetworkResult<Any>) {
-        
+
     }
 
     private fun initImageSlider() {
@@ -154,97 +172,5 @@ class HomeFragment : BaseFragment() {
         sliderAdapter.notifyDataSetChanged()
         binding.dotIndicator.setViewPager(viewPager)
     }
-
-    @SuppressLint("MissingPermission")
-    override fun onResume() {
-        super.onResume()
-        val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-        val bluetoothDevice = bluetoothAdapter.getRemoteDevice(sessionManager.bluetoothDeviceAddress)
-        val deviceName = bluetoothDevice.name
-        val deviceAddressInfo = bluetoothDevice.address
-        val bondState = bluetoothDevice.bondState  // e.g., BOND_BONDED, BOND_NONE, etc.
-        val deviceType = bluetoothDevice.type      // e.g., DEVICE_TYPE_CLASSIC, DEVICE_TYPE_LE, etc.
-
-        Log.d("Bluetooth", "Name: $deviceName")
-        Log.d("Bluetooth", "Address: $deviceAddressInfo")
-        Log.d("Bluetooth", "Bond State: $bondState")
-        Log.d("Bluetooth", "Device Type: $deviceType")
-        bluetoothDevice.connectGatt(context, false, gattCallback)
-    }
-
-    private val gattCallback = object : BluetoothGattCallback() {
-
-        @SuppressLint("MissingPermission")
-        override fun onConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int) {
-            if (newState == BluetoothProfile.STATE_CONNECTED) {
-                Log.d("GattCallback", "Connected to FITT360. Discovering services...")
-                gatt.discoverServices()
-            }
-        }
-
-        @SuppressLint("MissingPermission")
-        override fun onServicesDiscovered(gatt: BluetoothGatt, status: Int) {
-            if (status == BluetoothGatt.GATT_SUCCESS) {
-                // Use explicit UUIDs for the Battery Service
-                for (i in gatt.services.indices) {
-                    val batteryServiceUUID = gatt.services[i].uuid
-                    for (j in gatt.services[i].characteristics.indices) {
-                        val batteryCharacteristicUUID = gatt.services[i].characteristics[j].uuid
-                        val batteryService = gatt.getService(batteryServiceUUID)
-
-                        if (batteryService == null) {
-                            Log.e("GattCallback", "Battery service not found!")
-                        } else {
-                            val batteryCharacteristic =
-                                batteryService.getCharacteristic(batteryCharacteristicUUID)
-                            if (batteryCharacteristic == null) {
-                                Log.e("GattCallback", "Battery characteristic not found!")
-                            } else {
-                                // Ensure the characteristic is readable
-                                if (batteryCharacteristic.properties and BluetoothGattCharacteristic.PROPERTY_READ != 0) {
-                                    val initiated = gatt.readCharacteristic(batteryCharacteristic)
-                                    Log.d("GattCallback", "Initiated read: $initiated")
-                                    if (initiated) {
-                                        batteryUDID = gatt.services[i].characteristics[j].uuid.toString()
-                                    }
-                                } else {
-                                    Log.e("GattCallback", "Battery characteristic is not readable!")
-                                }
-                            }
-                        }
-
-                    }
-                }
-            } else {
-                Log.e("GattCallback", "Service discovery failed with status: $status")
-            }
-        }
-
-        override fun onCharacteristicRead(
-            gatt: BluetoothGatt,
-            characteristic: BluetoothGattCharacteristic,
-            status: Int
-        ) {
-            if (status == BluetoothGatt.GATT_SUCCESS) {
-                when (characteristic.uuid) {
-                    UUID.fromString(batteryUDID) -> {
-                        val batteryLevel = characteristic.value[0].toInt()
-                        requireActivity().runOnUiThread {
-                            binding.tvBatteryPercentage.text = "$batteryLevel%"
-                        }
-                        Log.d("GattCallback", "Battery Level: $batteryLevel%")
-                    }
-
-                    // Add additional cases for other characteristics if needed.
-                    else -> {
-                        Log.d("GattCallback", "Characteristic read: ${characteristic.uuid}")
-                    }
-                }
-            } else {
-                Log.e("GattCallback", "Characteristic read failed with status: $status")
-            }
-        }
-    }
-
 
 }

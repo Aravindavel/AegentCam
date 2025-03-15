@@ -12,7 +12,7 @@
     <string name="channel_wearable_dash_cam">3-Channel Wearable Dash Cam</string>
     <string name="fitt360">fitt360</string>
     <string name="home">Home</string>
-    <string name="recorded_files">Recorded Files</string>
+    <string name="gallery">Gallery</string>
     <string name="setting">Setting</string>
     <string name="application_setting">Application Setting</string>
     <string name="preview">Preview</string>
@@ -22,6 +22,9 @@
     <string name="connected">Connected</string>
     <string name="record_setting">Record Setting</string>
     <string name="camera_setting">Camera Setting</string>
+    <string name="live_stream_setting">Live Stream Setting</string>
+    <string name="live_stream_url">Live Stream Url</string>
+    <string name="enter_url">Enter the url</string>
     <string name="app_version">App Version</string>
     <string name="contact_us">Contact Us</string>
     <string name="device_name">Device Name</string>
@@ -75,6 +78,12 @@
     <string name="wifi_state_enable_alert">Need WIFI Connection.\nWill you turn on WIFI?</string>
     <string name="wifi_disconnected_time_out">Wifi p2p disconnected by long time does not use it.</string>
     <string name="wifi_disconnected">Wifi p2p disconnected.</string>
+    <string name="download_start">Start download</string>
+    <string name="download_done">Completed download</string>
+    <string name="download_failed">Download failed</string>
+    <string name="deleted">Deleted</string>
+    <string name="save">Save</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

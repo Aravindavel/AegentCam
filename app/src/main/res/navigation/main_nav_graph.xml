@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/filesFragment"
-        android:name="com.android.aegentcam.view.fragment.FilesFragment"
+        android:name="com.android.aegentcam.view.fragment.GalleryFragment"
         android:label="fragment_files"
-        tools:layout="@layout/fragment_files" />
+        tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/settingsFragment"

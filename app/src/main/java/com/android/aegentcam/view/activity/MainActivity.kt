@@ -13,6 +13,7 @@ import com.android.aegentcam.databinding.ActivityMainBinding
 import com.android.aegentcam.interfaces.IOnBackPressed
 import com.android.aegentcam.network.NetworkResult
 import com.android.aegentcam.view.fragment.DeviceInfoFragment
+import com.android.aegentcam.view.fragment.GalleryFragment
 import com.android.aegentcam.view.fragment.HomeFragment
 import com.android.aegentcam.view.fragment.RecordSettingFragment
 import com.android.aegentcam.view.fragment.SettingsFragment
@@ -100,7 +101,7 @@ class MainActivity : BaseActivity() {
                     commonMethods.showToast(this, getString(R.string.press_back_again))
                 }
             }
-            is SettingsFragment ->{
+            is SettingsFragment,is GalleryFragment ->{
                 binding.bottomNavigation.setItemSelected(R.id.homeFragment, true)
                 getNavController().popBackStack(R.id.homeFragment,false)
             }

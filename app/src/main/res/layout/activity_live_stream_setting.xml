@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.LiveStreamSettingActivity">
+
+    <include
+        android:id="@+id/header"
+        android:visibility="visible"
+        layout="@layout/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/tv_live_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/live_stream_url"
+        style="@style/MediumText"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="?txtPrimary"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/header"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/rlt_full_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_curved_border_light_transparent"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@+id/tv_live_url"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:padding="@dimen/_7sdp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:weightSum="2">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:src="@drawable/ic_url"
+                    app:tint="@color/window_background" />
+
+                <View
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:backgroundTint="?bgGreyLight"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/bg_curved_window"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_live_url"
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@color/transparent"
+                android:hint="@string/enter_url"
+                android:layout_weight="1.9"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:textColorHint="?txtFourth"
+                android:textAlignment="viewStart"
+                android:textColorHighlight="@color/bg_third"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textColor="?txtPrimary" />
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlt_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_curved_secondary"
+        android:backgroundTint="@color/window_background"
+        android:text="@string/get_started"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        style="@style/MediumText"
+        android:padding="@dimen/_10sdp"
+        android:textAllCaps="false"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:textColor="?txtSecondary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MediumText"
+            android:layout_centerInParent="true"
+            android:text="@string/save"
+            android:textColor="?txtSecondary"
+            android:textAlignment="viewStart"
+            android:layout_gravity="center_vertical"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

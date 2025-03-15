@@ -9,7 +9,7 @@
     <item
         android:id="@+id/filesFragment"
         android:icon="@drawable/ic_gallery"
-        android:title="@string/recorded_files"
+        android:title="@string/gallery"
         app:cnb_iconColor="@color/window_background"/>
     <item
         android:id="@+id/settingsFragment"

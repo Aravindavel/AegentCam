@@ -30,9 +30,9 @@ class SessionManager {
         get() = sharedPreferences.getString("bluetoothDeviceAddress", "").toString()
         set(bluetoothDeviceAddress) = sharedPreferences.edit().putString("bluetoothDeviceAddress", bluetoothDeviceAddress).apply()
 
-    var selectedCameraMode: String
-        get() = sharedPreferences.getString("selectedCameraMode", "").toString()
-        set(selectedCameraMode) = sharedPreferences.edit().putString("selectedCameraMode", selectedCameraMode).apply()
+    var liveStreamUrl: String
+        get() = sharedPreferences.getString("liveStreamUrl", "rtmp://192.168.0.85/live/tony").toString()
+        set(liveStreamUrl) = sharedPreferences.edit().putString("liveStreamUrl", liveStreamUrl).apply()
 
 
     fun clearAll() {

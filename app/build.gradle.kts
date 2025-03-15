@@ -72,6 +72,11 @@ dependencies {
     implementation (libs.dotsindicator)
     implementation(files("libs/pb_sdk.aar"))
     //Butterknife
-    implementation ("com.jakewharton:butterknife:10.2.3")
-    kapt ("com.jakewharton:butterknife-compiler:10.2.3")
+    implementation (libs.butterknife)
+    kapt (libs.butterknife.compiler)
+    implementation (libs.androidx.media3.exoplayer)
+    implementation (libs.androidx.media3.exoplayer.dash)
+    implementation (libs.androidx.media3.ui)
+    implementation (libs.androidx.media3.exoplayer.hls)
+    implementation(libs.androidx.media3.datasource.okhttp)
 }

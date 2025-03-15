@@ -13,6 +13,7 @@ import com.android.aegentcam.R
 import com.android.aegentcam.databinding.FragmentSettingsBinding
 import com.android.aegentcam.network.NetworkResult
 import com.android.aegentcam.view.activity.CameraSettingActivity
+import com.android.aegentcam.view.activity.LiveStreamSettingActivity
 
 class SettingsFragment : BaseFragment() {
 
@@ -51,6 +52,15 @@ class SettingsFragment : BaseFragment() {
         }
         binding.rltCameraSetting.setOnClickListener {
             val intent = Intent(requireContext(), CameraSettingActivity::class.java)
+            val animation = ActivityOptions.makeCustomAnimation(
+                requireContext(),
+                R.anim.ub__slide_in_right,
+                R.anim.ub__slide_out_left
+            ).toBundle()
+            startActivity(intent, animation)
+        }
+        binding.rltLiveStreamSetting.setOnClickListener {
+            val intent = Intent(requireContext(), LiveStreamSettingActivity::class.java)
             val animation = ActivityOptions.makeCustomAnimation(
                 requireContext(),
                 R.anim.ub__slide_in_right,

@@ -2,7 +2,6 @@ package com.android.aegentcam.view.activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.android.aegentcam.R
@@ -66,10 +65,19 @@ class CameraSettingActivity : BaseActivity() {
 
     private fun initRecyclerView() {
         val settingsList = listOf(
-            SettingItem.SegmentedControl(
-                ID_MODE, listOf("All", "Front)", "Back"), getCurrentPosition(
-                    ID_MODE
-                )),
+            if (Version.isOver244(mBTCommandManager!!.firmwareVersion)) {
+                SettingItem.SegmentedControl(
+                    ID_MODE, listOf("All", "Front", "Back"), getCurrentPosition(
+                        ID_MODE
+                    )
+                )
+            }else{
+                SettingItem.SegmentedControl(
+                    ID_MODE, listOf("All", "Front"), getCurrentPosition(
+                        ID_MODE
+                    )
+                )
+            },
             SettingItem.SegmentedControl(
                 ID_RESOLUTION, listOf("Low", "Middle", "High"), getCurrentPosition(
                     ID_RESOLUTION
@@ -426,13 +434,25 @@ class CameraSettingActivity : BaseActivity() {
     fun getCurrentPosition(id: String): Int {
         return when (id) {
             ID_MODE -> {
-                val options = listOf("All", "Front)", "Back")
-                val selectedOption = when {
-                    mBTCommandManager!!.enabledSingleCamera() -> "Back"
-                    mBTCommandManager!!.enabledDualMode() -> "Front)"
-                    else -> "All"
+                if (Version.isOver244(mBTCommandManager!!.firmwareVersion)){
+                    val options = listOf("All", "Front", "Back")
+                    mBTCommandManager!!
+                    val selectedOption = when {
+                        mBTCommandManager!!.enabledSingleCamera() -> "Back"
+                        mBTCommandManager!!.enabledDualMode() -> "Front"
+                        else -> "All"
+                    }
+                    options.indexOf(selectedOption)
+                }else{
+                    val options = listOf("All", "Front")
+                    mBTCommandManager!!
+                    val selectedOption = when {
+                        mBTCommandManager!!.enabledDualMode() -> "Front"
+                        else -> "All"
+                    }
+                    options.indexOf(selectedOption)
                 }
-                options.indexOf(selectedOption)
+
             }
             ID_RESOLUTION ->{
                 val enabledSingleCameraMode: Boolean = mBTCommandManager!!.enabledSingleCamera()

@@ -44,9 +44,9 @@
     <color name="txt_seventh">#FFD814</color>
     <color name="black">#000</color>
     <color name="error_red">#EC3A3A</color>
-    <color name="start_gradient">#B530DA</color>
-    <color name="center_gradient">#F7EF8A</color>
-    <color name="end_gradient">#D2AC47</color>
+    <color name="start_gradient">#FFFC2E80</color>
+    <color name="center_gradient">#FFC64ABD</color>
+    <color name="end_gradient">#FF8A68FF</color>
     <color name="txt_active">#13862E</color>
     <color name="txt_inactive">#000000</color>
     <color name="txt_hint">#72000000</color>

@@ -31,7 +31,7 @@ class SessionManager {
         set(bluetoothDeviceAddress) = sharedPreferences.edit().putString("bluetoothDeviceAddress", bluetoothDeviceAddress).apply()
 
     var liveStreamUrl: String
-        get() = sharedPreferences.getString("liveStreamUrl", "rtmp://192.168.0.85/live/tony").toString()
+        get() = sharedPreferences.getString("liveStreamUrl", "aravind").toString()
         set(liveStreamUrl) = sharedPreferences.edit().putString("liveStreamUrl", liveStreamUrl).apply()
 
 

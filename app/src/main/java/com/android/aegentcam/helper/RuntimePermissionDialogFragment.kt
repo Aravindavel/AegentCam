@@ -201,6 +201,10 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         val PHONE_STATE = Manifest.permission.READ_PHONE_STATE
         @RequiresApi(33)
         val NOTIFICATION_PERMISSION = Manifest.permission.POST_NOTIFICATIONS
+
+        @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+        val FOREGROUND_PERMISSION = Manifest.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION
+
         val READ_EXTERNAL_STORAGE_PERMISSION = Manifest.permission.READ_EXTERNAL_STORAGE
         @RequiresApi(33)
         val MEDIA_IMAGES = Manifest.permission.READ_MEDIA_IMAGES
@@ -214,7 +218,11 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         //public final int storageIcon = android.R.drawable.sym_contact_card; // this may be used as alternative icon for SDcard access
 
         val PERMISSION_ARRAY =  if (Build.VERSION.SDK_INT >= 33) {
-            arrayOf(MEDIA_IMAGES,BLUETOOTH_PERMISSION,LOCATION_PERMISSION,BLUETOOTH_SCAN,WIFI_PERMISSION)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                arrayOf(MEDIA_IMAGES,BLUETOOTH_PERMISSION,LOCATION_PERMISSION,BLUETOOTH_SCAN,WIFI_PERMISSION,NOTIFICATION_PERMISSION,FOREGROUND_PERMISSION)
+            } else {
+                arrayOf(MEDIA_IMAGES,BLUETOOTH_PERMISSION,LOCATION_PERMISSION,BLUETOOTH_SCAN,WIFI_PERMISSION,NOTIFICATION_PERMISSION)
+            }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 arrayOf( WRITE_EXTERNAL_STORAGE_PERMISSION, READ_EXTERNAL_STORAGE_PERMISSION,

@@ -24,6 +24,7 @@ import com.android.aegentcam.databinding.FragmentHomeBinding
 import com.android.aegentcam.helper.DepthPageTransformer
 import com.android.aegentcam.network.NetworkResult
 import com.android.aegentcam.view.activity.CameraSettingActivity
+import com.android.aegentcam.view.activity.LiveStreamActivity
 import com.android.aegentcam.view.activity.MainActivity
 import com.android.aegentcam.view.activity.PreviewActivity
 import com.android.aegentcam.view.adapter.ImageSliderAdapter
@@ -73,6 +74,16 @@ class HomeFragment : BaseFragment() {
 
         binding.cvPreview.setSafeOnClickListener {
             val intent = Intent(requireContext(), PreviewActivity::class.java)
+            val animation = ActivityOptions.makeCustomAnimation(
+                requireContext(),
+                R.anim.ub__slide_in_right,
+                R.anim.ub__slide_out_left
+            ).toBundle()
+            startActivity(intent, animation)
+        }
+
+        binding.cvLiveStream.setSafeOnClickListener {
+            val intent = Intent(requireContext(), LiveStreamActivity::class.java)
             val animation = ActivityOptions.makeCustomAnimation(
                 requireContext(),
                 R.anim.ub__slide_in_right,

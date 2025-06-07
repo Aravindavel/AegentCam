@@ -1,6 +1,7 @@
 package com.android.aegentcam.interfaces
 
 
+import android.content.Context
 import com.android.aegentcam.configs.AppContainerModule
 import com.android.aegentcam.configs.ApplicationModule
 import com.android.aegentcam.configs.NetworkModule
@@ -9,10 +10,16 @@ import com.android.aegentcam.helper.SessionManager
 import com.android.aegentcam.network.ApiExceptionHandler
 import com.android.aegentcam.repository.CommonRepository
 import com.android.aegentcam.view.activity.BaseActivity
+import com.android.aegentcam.view.activity.LiveStreamActivity
 import com.android.aegentcam.view.adapter.BTDeviceRecyclerAdapter
 import com.android.aegentcam.view.fragment.BaseFragment
 import com.android.aegentcam.view.fragment.HomeFragment
 import com.android.aegentcam.viewmodel.CommonViewModel
+import com.android.aegentcam.webrtcscreenshare.repository.MainRepository
+import com.android.aegentcam.webrtcscreenshare.service.WebrtcService
+import com.android.aegentcam.webrtcscreenshare.socket.SocketClient
+import com.android.aegentcam.webrtcscreenshare.webrtc.WebrtcClient
+import com.google.gson.Gson
 import dagger.Component
 import javax.inject.Singleton
 
@@ -39,5 +46,14 @@ interface AppComponent {
 
     fun inject(baseFragment: BaseFragment)
 
+    fun inject(liveStreamActivity: LiveStreamActivity)
+
+    fun inject(service: WebrtcService)
+
+    fun inject(mainRepository: MainRepository)
+
+    fun inject(socketClient: SocketClient)
+
+    fun inject(webrtcClient: WebrtcClient)
 
 }

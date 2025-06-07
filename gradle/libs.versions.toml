@@ -10,6 +10,7 @@ daggerCompiler = "2.52"
 dotsindicator = "5.1.0"
 glide = "4.15.1"
 gson = "2.10.1"
+javaWebsocket = "1.5.3"
 kenburnsview = "1.0.7"
 kotlin = "2.0.0"
 coreKtx = "1.15.0"
@@ -32,6 +33,7 @@ smoothbottombar = "1.7.9"
 sspAndroid = "1.0.6"
 viewpager2 = "1.1.0"
 viewpagertransformerlibrary = "v1.2.0"
+webrtc = "1.0.5"
 
 [libraries]
 android-gif-drawable = { module = "pl.droidsonroids.gif:android-gif-drawable", version.ref = "androidGifDrawable" }
@@ -58,6 +60,7 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 ismaeldivita-chip-navigation-bar = { module = "com.github.ismaeldivita:chip-navigation-bar", version.ref = "chipNavigationBarVersion" }
+java-websocket = { module = "org.java-websocket:Java-WebSocket", version.ref = "javaWebsocket" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -73,6 +76,7 @@ smoothbottombar = { module = "com.github.ibrahimsn98:SmoothBottomBar", version.r
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
 viewpagertransformerlibrary = { module = "com.github.kungfucat:ViewPagerTransformerLibrary", version.ref = "viewpagertransformerlibrary" }
+webrtc = { module = "com.mesibo.api:webrtc", version.ref = "webrtc" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

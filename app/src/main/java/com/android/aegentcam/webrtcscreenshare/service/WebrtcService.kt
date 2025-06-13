@@ -1,9 +1,13 @@
 package com.android.aegentcam.webrtcscreenshare.service
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROCESSING
+import android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
@@ -44,7 +48,13 @@ class WebrtcService @Inject constructor() : Service() , MainRepository.Listener 
                 "StartIntent"->{
                     this.username = intent.getStringExtra("username").toString()
                     mainRepository.init(username, surfaceView!!)
-                    startServiceWithNotification()
+                    notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                    createNotificationChannel()
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                        startForeground(1, buildNotification(),
+                            FOREGROUND_SERVICE_TYPE_MEDIA_PROCESSING)
+                    }else
+                        startForeground(1, buildNotification())
                 }
                 "StopIntent"->{
                     stopMyService()
@@ -82,18 +92,23 @@ class WebrtcService @Inject constructor() : Service() , MainRepository.Listener 
         }
     }
 
-    private fun startServiceWithNotification(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val notificationChannel = NotificationChannel(
-                "channel1","foreground",NotificationManager.IMPORTANCE_HIGH
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "channel1",
+                "Foreground Service Channel",
+                NotificationManager.IMPORTANCE_HIGH
             )
-            notificationManager.createNotificationChannel(notificationChannel)
-            val notification = NotificationCompat.Builder(this,"channel1")
-                .setSmallIcon(R.mipmap.ic_launcher)
-
-            startForeground(1,notification.build())
+            notificationManager.createNotificationChannel(channel)
         }
+    }
 
+    private fun buildNotification(): Notification {
+        return NotificationCompat.Builder(this, "channel1")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Screen Sharing Active")
+            .setContentText("Your screen is being shared")
+            .build()
     }
 
     override fun onConnectionRequestReceived(target: String) {

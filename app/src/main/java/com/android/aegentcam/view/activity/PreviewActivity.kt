@@ -153,6 +153,7 @@ class PreviewActivity : BaseStreamActivity(), SurfaceHolder.Callback {
                     mStreamManager!!.start(resources.openRawResourceFd(R.raw.aac_44k))
                 }
                 Log.e(TAG, "reload")
+                Log.e(TAG, "rtspUrl: ${NeckbandRestApiClient.getRTSPUrl()}")
                 mPreviewModel!!.activateRTSP(mBTCommandManager!!.accessToken, true)
             } catch (e: Exception) {
                 e.printStackTrace()

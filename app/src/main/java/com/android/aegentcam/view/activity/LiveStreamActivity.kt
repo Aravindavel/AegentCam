@@ -1,5 +1,6 @@
 package com.android.aegentcam.view.activity
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.ContentValues
 import android.content.Context
@@ -8,7 +9,9 @@ import android.media.projection.MediaProjectionManager
 import android.os.Bundle
 import android.util.Log
 import android.view.SurfaceHolder
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -39,6 +42,7 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
     @Inject
     lateinit var webrtcServiceRepository: WebrtcServiceRepository
     private val capturePermissionRequestCode = 1
+    var isScreenSharingStarted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +89,7 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
         }
 
         binding.rltStartLive.setSafeOnClickListener {
-            startScreenCapture()
+            //startScreenCapture()
         }
 
     }
@@ -110,20 +114,31 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
             recreate()
         }
         else if (requestCode == capturePermissionRequestCode) {
-            WebrtcService.screenPermissionIntent = data
-            webrtcServiceRepository.requestConnection(sessionManager.liveStreamUrl)
+
         }
     }
 
-    private fun startScreenCapture(){
-        val mediaProjectionManager = application.getSystemService(
-            Context.MEDIA_PROJECTION_SERVICE
-        ) as MediaProjectionManager
-
-        startActivityForResult(
-            mediaProjectionManager.createScreenCaptureIntent(), capturePermissionRequestCode
-        )
+    private fun startScreenCapture() {
+        val mediaProjectionManager =
+            getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+        val screenCaptureIntent = mediaProjectionManager.createScreenCaptureIntent()
+        screenCaptureLauncher.launch(screenCaptureIntent)
     }
+
+    private val screenCaptureLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            WebrtcService.screenPermissionIntent = data
+            webrtcServiceRepository.requestConnection(sessionManager.liveStreamUrl)
+        } else {
+            Toast.makeText(this, "Permission denied for screen capture", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
 
     override fun onSuccess(networkResult: NetworkResult<Any>) {
 
@@ -153,9 +168,15 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
                 }
             }).setFrameCallback {
                 mRTSPCheckHandler.removeMessages(RTSP_STARTED_CHECK)
-                mRTSPCheckHandler.post(Runnable {
-                    binding.rltStartLive.isVisible = true
-                    commonMethods.hideProgressDialog() })
+                mRTSPCheckHandler.postDelayed({
+                    if (isScreenSharingStarted)
+                        return@postDelayed
+                        commonMethods.hideProgressDialog()
+                        startScreenCapture()
+                        isScreenSharingStarted = !isScreenSharingStarted
+
+                }, 300) // delay by 300ms
+
             }.setAudioDecodedListener { bytes, i, i1 -> }.setResolution(3840, 1280).build()
 
         binding.surface.holder.addCallback(this)
@@ -221,8 +242,8 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
     override fun onConnectionConnected() {
         runOnUiThread {
             binding.apply {
-                rltStartLive.isVisible = false
-                rltStopLive.isVisible = true
+                //rltStartLive.isVisible = false
+                //rltStopLive.isVisible = true
                 rltStopLive.setOnClickListener {
                     isServiceDestroy = false
                     webrtcServiceRepository.endCallIntent()
@@ -248,8 +269,8 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
 
     private fun restartUi(){
         binding.apply {
-            rltStopLive.isVisible=false
-            rltStartLive.isVisible = true
+            //rltStopLive.isVisible=false
+            //rltStartLive.isVisible = true
         }
     }
 }

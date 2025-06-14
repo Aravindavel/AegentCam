@@ -52,7 +52,7 @@ class WebrtcService @Inject constructor() : Service() , MainRepository.Listener 
                     createNotificationChannel()
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
                         startForeground(1, buildNotification(),
-                            FOREGROUND_SERVICE_TYPE_MEDIA_PROCESSING)
+                            FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
                     }else
                         startForeground(1, buildNotification())
                 }

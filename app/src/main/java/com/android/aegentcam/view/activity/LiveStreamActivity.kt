@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.SurfaceHolder
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -46,7 +45,6 @@ class LiveStreamActivity : BaseStreamActivity(), SurfaceHolder.Callback, MainRep
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityLiveStreamBinding.inflate(layoutInflater)
         setContentView(binding.root)
         AppController.appComponent!!.inject(this)

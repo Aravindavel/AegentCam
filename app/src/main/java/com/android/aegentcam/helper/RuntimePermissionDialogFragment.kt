@@ -75,7 +75,6 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         isCancelable = false
         Objects.requireNonNull(dialog!!.window)?.setBackgroundDrawableResource(android.R.color.transparent)
         ButterKnife.bind(this, rootView)
-        setImageResourceAndPermissionDescriptionForPopup()
         return rootView
     }
 
@@ -84,7 +83,7 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         permissionAllow = view.findViewById(R.id.button_ok)
         permissionNotAllow = view.findViewById(R.id.button_cancel)
         tv_permissionDescription = view.findViewById(R.id.tv_custom_message)
-
+        setImageResourceAndPermissionDescriptionForPopup()
         permissionNotAllow.setOnClickListener {  afterPermissionDenied() }
         permissionAllow.setOnClickListener {
             if (ableToRequestPermission) {

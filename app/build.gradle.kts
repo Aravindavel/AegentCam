@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.android.aegentcam"
-    compileSdk = 35
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.android.aegentcam"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 

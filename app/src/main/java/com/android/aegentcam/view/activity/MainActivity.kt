@@ -1,7 +1,6 @@
 package com.android.aegentcam.view.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment

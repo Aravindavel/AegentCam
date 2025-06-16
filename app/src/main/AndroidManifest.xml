@@ -30,7 +30,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
     <!-- Optional for Android 15+ when using screen capturing with processing -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROCESSING" tools:targetApi="34"/>
+
 
 
 
@@ -103,7 +103,7 @@
 
         <service
             android:name=".webrtcscreenshare.service.WebrtcService"
-            android:foregroundServiceType="mediaProjection|mediaProcessing"
+            android:foregroundServiceType="mediaProjection"
             android:exported="false"/>
     </application>
 

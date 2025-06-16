@@ -47,11 +47,8 @@ class RuntimePermissionDialogFragment : DialogFragment() {
   /*  //butterknife view binds
     @BindView(R.id.imgv_df_permissionImage)
     lateinit var permissionTypeImage: ImageView*/
-    @BindView(R.id.button_ok)
     lateinit var permissionAllow: Button
-    @BindView(R.id.button_cancel)
     lateinit var permissionNotAllow: Button
-    @BindView(R.id.tv_custom_message)
     lateinit var tv_permissionDescription: TextView
 
 
@@ -82,9 +79,26 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         return rootView
     }
 
-    @OnClick(R.id.button_cancel)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        permissionAllow = view.findViewById(R.id.button_ok)
+        permissionNotAllow = view.findViewById(R.id.button_cancel)
+        tv_permissionDescription = view.findViewById(R.id.tv_custom_message)
+
+        permissionNotAllow.setOnClickListener {  afterPermissionDenied() }
+        permissionAllow.setOnClickListener {
+            if (ableToRequestPermission) {
+                requestNecessaryPermissions()
+            } else {
+                mContext!!.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + BuildConfig.APPLICATION_ID)))
+                dismiss()
+            }
+        }
+    }
+
+    /*@OnClick(R.id.button_cancel)
     fun notAllowPermission() {
-        afterPermissionDenied()
+
     }
 
     @OnClick(R.id.button_ok)
@@ -96,7 +110,7 @@ class RuntimePermissionDialogFragment : DialogFragment() {
             dismiss()
         }
     }
-
+*/
     override fun onDetach() {
         super.onDetach()
         mContext = null
@@ -202,8 +216,6 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         @RequiresApi(33)
         val NOTIFICATION_PERMISSION = Manifest.permission.POST_NOTIFICATIONS
 
-        @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-        val FOREGROUND_PERMISSION = Manifest.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION
 
         val READ_EXTERNAL_STORAGE_PERMISSION = Manifest.permission.READ_EXTERNAL_STORAGE
         @RequiresApi(33)
@@ -218,11 +230,7 @@ class RuntimePermissionDialogFragment : DialogFragment() {
         //public final int storageIcon = android.R.drawable.sym_contact_card; // this may be used as alternative icon for SDcard access
 
         val PERMISSION_ARRAY =  if (Build.VERSION.SDK_INT >= 33) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                arrayOf(MEDIA_IMAGES,BLUETOOTH_PERMISSION,LOCATION_PERMISSION,BLUETOOTH_SCAN,WIFI_PERMISSION,NOTIFICATION_PERMISSION,FOREGROUND_PERMISSION)
-            } else {
-                arrayOf(MEDIA_IMAGES,BLUETOOTH_PERMISSION,LOCATION_PERMISSION,BLUETOOTH_SCAN,WIFI_PERMISSION,NOTIFICATION_PERMISSION)
-            }
+            arrayOf(MEDIA_IMAGES,BLUETOOTH_PERMISSION,LOCATION_PERMISSION,BLUETOOTH_SCAN,WIFI_PERMISSION,NOTIFICATION_PERMISSION)
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 arrayOf( WRITE_EXTERNAL_STORAGE_PERMISSION, READ_EXTERNAL_STORAGE_PERMISSION,
